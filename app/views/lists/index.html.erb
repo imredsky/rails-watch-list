@@ -1,5 +1,13 @@
-<h1>liste</h1>
+<div class="navbar-perso">
+  <div>
+    <p>My Lists</p>
+    <p>New list</p>
+  </div>
+</div>
 
+<div class="header">
+  <h1>Save any kind of movies</h1>
+</div>
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list %></li>
