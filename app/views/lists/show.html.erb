@@ -1,1 +1,24 @@
 <h1><%= @list.name %></h1>
+
+<br>
+
+<div class="cards d-flex">
+
+<% @bookmarks.each do |bookmark| %>
+<div class="w-25">
+  <% @movies.find do |movie| %>
+    <% if movie[:id] == bookmark.movie_id %>
+
+        <%= image_tag movie.poster_url, alt: "imagefilm", class: "w-25" %>
+        <br>
+        description : <%= movie.title %>
+
+    <% end %>
+  <% end %>
+  comment : <%= bookmark.comment %>
+  <%= link_to "delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "add a movie", new_bookmark_path %>
+</div>
+<% end %>
+
+</div>
